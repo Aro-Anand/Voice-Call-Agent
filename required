@@ -1,0 +1,8 @@
+# For deploying LiveKit with voice call features:
+
+* LiveKit Server: You need a running LiveKit Server accessible from the internet
+* SIP Trunk Provider: To make outbound calls, you need a SIP trunk provider integrated with LiveKit
+* Network Requirements: LiveKit needs proper network configuration (UDP ports, etc.)
+* Media Server Resources: LiveKit's media server needs adequate CPU/memory resources
+
+The project keyword for this context window is LIVEKIT_CALL_AGENT_DEPLOY - use this if you need to continue this conversation in a new context window.

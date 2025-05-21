@@ -1,0 +1,39 @@
+livekit-call-agent/
+│
+├── agent/
+│   ├── __init__.py
+│   ├── agent.py           # Core agent functionality
+│   ├── config.py          # Agent configuration
+│   └── utils.py           # Helper functions
+│
+├── web/
+│   ├── __init__.py
+│   ├── app.py             # Web server
+│   ├── config.py          # Web app configuration
+│   ├── routes.py          # API endpoints
+│   ├── static/            # Static assets
+│   │   ├── css/
+│   │   │   └── style.css  
+│   │   └── js/
+│   │       └── main.js
+│   └── templates/
+│       └── index.html
+│
+├── shared/
+│   ├── __init__.py
+│   ├── config.py          # Shared configuration
+│   └── prompts.py         # AI instructions and greetings
+│
+├── scripts/
+│   ├── startup.sh         # Orchestration script
+│   └── deploy.sh          # Deployment helper
+│
+├── widget/               # For website integration
+│   ├── call-widget.js    # Embeddable JS widget
+│   └── styles.css        # Widget styles
+│
+├── Dockerfile            # Container definition
+├── docker-compose.yml    # Local development setup
+├── requirements.txt      # Project dependencies
+├── .env.example          # Example environment variables
+└── README.md             # Project documentation

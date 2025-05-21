@@ -1,0 +1,59 @@
+<!-- Code snippet for website embedding -->
+<!-- Add this to the website where you want the call assistant to appear -->
+
+<!-- 1. Add this in the <head> section of your website -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- 2. Add this right before the closing </body> tag -->
+<script src="https://your-aws-deployment-domain.com/static/widget/call-widget.js" data-auto-init="true"></script>
+
+<!-- 3. Optional: Configure the widget -->
+<script>
+  // Optional: Configure widget settings after load
+  window.addEventListener('load', function() {
+    if (window.LiveKitCallAssistant) {
+      LiveKitCallAssistant.setConfig({
+        apiEndpoint: 'https://your-aws-deployment-domain.com', // Replace with your actual domain
+        // Other configuration options can be added here
+      });
+    }
+  });
+</script>
+
+
+
+
+
+
+Integration with Existing Website
+To integrate with an existing website, you have two options:
+
+Embed the Widget Script: Add this script tag to your existing website:
+
+html<script src="https://your-deployment-domain.com/widget/call-widget.js"></script>
+
+Iframe Integration: If you prefer isolation:
+
+html<iframe src="https://your-deployment-domain.com" style="display:none" id="callAssistantFrame"></iframe>
+<script>
+    // Simple control script
+    function openCallAssistant() {
+        const frame = document.getElementById('callAssistantFrame');
+        frame.style.display = 'block';
+        frame.style.position = 'fixed';
+        frame.style.bottom = '0';
+        frame.style.right = '0';
+        frame.style.width = '450px';
+        frame.style.height = '600px';
+        frame.style.border = 'none';
+        frame.style.zIndex = '9999';
+    }
+    
+    // Add a button to your site
+    const btn = document.createElement('button');
+    btn.textContent = 'Talk to Agent';
+    btn.onclick = openCallAssistant;
+    document.body.appendChild(btn);
+</script>

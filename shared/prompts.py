@@ -1,6 +1,8 @@
+# shared/prompts.py
 from datetime import datetime
 
 def get_time_greeting():
+    """Returns a time-appropriate greeting based on current hour"""
     hour = datetime.now().hour
     if 5 <= hour < 12:
         return "Good Morning"
@@ -10,12 +12,16 @@ def get_time_greeting():
         return "Good Evening"
 
 def get_welcome_message(customer_name: str, query: str = None) -> str:
+    """Creates a personalized welcome message for the customer"""
     greeting = get_time_greeting()
     if query:
-        return f"Hello {customer_name}, {greeting.lower()}! I understand you have a query about {query}. How can I help you with that?"
-    return f"{greeting} {customer_name}! How can I assist you today?"
+        return f"Hey {customer_name}, {greeting.lower()}! You're speaking with FRAN-TIGER — your friendly AI on a mission to help! I heard you've got a question about {query}, and I'm all ears. Let's sort it out together — how can I assist you today?"
+    else:
+        return f"Hey {customer_name}, {greeting}! I'm FRAN-TIGER, your smart assistant. What can I help you tackle today?"
 
-INSTRUCTIONS = """
+def get_agent_instructions() -> str:
+    """Return the instructions for the AI agent"""
+    return """
 You are an AI assistant called Fran-taiger. You are professional, helpful, and friendly.
 
 You're speaking with a customer on a phone call. Your goal is to provide excellent customer service.
