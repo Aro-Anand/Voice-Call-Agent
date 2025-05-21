@@ -1,5 +1,4 @@
-# Dockerfile
-FROM python:3.12-slim
+FROM python:3.10-slim
 
 WORKDIR /app
 
@@ -7,14 +6,20 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
+# Copy project files
 COPY . .
 
-# Set environment to production
-ENV NODE_ENV=production
+# Create logs and db directories
+RUN mkdir -p logs db
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PORT=8080 \
+    HOST=0.0.0.0
+
+# Run startup script
+CMD ["bash", "scripts/startup.sh"]
 
 # Expose the application port
 EXPOSE 8080
-
-# Start the application
-CMD ["python", "main.py"]

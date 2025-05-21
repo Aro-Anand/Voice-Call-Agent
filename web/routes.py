@@ -8,7 +8,7 @@ import traceback
 import atexit
 import signal
 from livekit import api as lkapi
-from agent.utilis import generate_room_name, logging, setup_logging
+from agent.utlis import generate_room_name, logging, setup_logging
 from .config import LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET, AGENT_NAME
 
 logger = logging.getLogger(__name__)
